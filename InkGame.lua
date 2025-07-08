@@ -71,7 +71,7 @@ settingsC.CanvasSize = UDim2.new(0,0,0,300)
 settingsC.ScrollBarThickness = 4
 settingsC.Visible = false
 
--- Player side
+-- Player side кнопки
 local espB = Instance.new("TextButton", playerC)
 espB.Text = "ESP: OFF"
 espB.Size = UDim2.new(1,-10,0,30)
@@ -164,8 +164,42 @@ toraB.BackgroundColor3 = Color3.fromRGB(60,60,60)
 toraB.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", toraB).CornerRadius = UDim.new(0,6)
 
--- дальше идёт логика: переменные, переключения, эффекты, переводы, noclip, esp, inf jump, hover, boost, pass, copy, speed, toraB
--- скажи, если нужно – я допишу именно логику и **функционал полностью** прямо сюда!
+-- Надпись о создателе
+local creditLabel = Instance.new("TextLabel", settingsC)
+creditLabel.Text = "Maked by @neked10 (Username in telegram)"
+creditLabel.Position = UDim2.new(0,5,0,93)
+creditLabel.Size = UDim2.new(1,-10,0,24)
+creditLabel.BackgroundTransparency = 1
+creditLabel.TextColor3 = Color3.new(1,1,1)
+creditLabel.Font = Enum.Font.SourceSans
+creditLabel.TextSize = 14
+
+-- Перевод на русский
+local ruB = Instance.new("TextButton", settingsC)
+ruB.Text="RU"
+ruB.Position=UDim2.new(0,5,0,122)
+ruB.Size=UDim2.new(0.5,-7,0,24)
+ruB.BackgroundColor3=Color3.fromRGB(60,60,60)
+ruB.TextColor3=Color3.new(1,1,1)
+Instance.new("UICorner", ruB).CornerRadius=UDim.new(0,6)
+
+local enB = Instance.new("TextButton", settingsC)
+enB.Text="EN"
+enB.Position=UDim2.new(0.5+0.015,0,0,122)
+enB.Size=UDim2.new(0.5,-7,0,24)
+enB.BackgroundColor3=Color3.fromRGB(60,60,60)
+enB.TextColor3=Color3.new(1,1,1)
+Instance.new("UICorner", enB).CornerRadius=UDim.new(0,6)
+
+ruB.MouseButton1Click:Connect(function()
+    title.Text="инк игра"
+    creditLabel.Text="Сделано @neked10 (юзернейм в телеграмме)"
+end)
+
+enB.MouseButton1Click:Connect(function()
+    title.Text="ink game"
+    creditLabel.Text="Maked by @neked10 (Username in telegram)"
+end)
 
 -- Переменные для логики
 local collapsed = false
@@ -337,56 +371,3 @@ end)
 toraB.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/InkGame"))()
 end)
-
--- Перевод
-local function setLanguage(lang)
-    if lang=="ru" then
-        title.Text="инк игра"
-        espB.Text=espOn and "ESP: ВКЛ" or "ESP: ВЫКЛ"
-        hoverB.Text=hoverOn and "Парение: ВКЛ" or "Парение: ВЫКЛ"
-        infJumpB.Text=infJumpOn and "Беск.прыжок: ВКЛ" or "Беск.прыжок: ВЫКЛ"
-        boostB.Text=boostOn and "Буст: ВКЛ" or "Буст: ВЫКЛ"
-        noclipB.Text=noclipOn and "Ноуклип: ВКЛ" or "Ноуклип: ВЫКЛ"
-        passB.Text="Пройти красный/зелёный"
-        speedConfirm.Text="Подтвердить"
-        playerTab.Text="Игрок"
-        settingsTab.Text="Настройки"
-        copyB.Text="Копировать"
-        toraB.Text="Тора скрипт"
-    else
-        title.Text="ink game"
-        espB.Text=espOn and "ESP: ON" or "ESP: OFF"
-        hoverB.Text=hoverOn and "Hover: ON" or "Hover: OFF"
-        infJumpB.Text=infJumpOn and "Inf Jump: ON" or "Inf Jump: OFF"
-        boostB.Text=boostOn and "Boost: ON" or "Boost: OFF"
-        noclipB.Text=noclipOn and "Noclip: ON" or "Noclip: OFF"
-        passB.Text="Pass red light green light"
-        speedConfirm.Text="Confirm"
-        playerTab.Text="Player"
-        settingsTab.Text="Settings"
-        copyB.Text="Copy"
-        toraB.Text="Tora Script"
-    end
-end
-
--- Кнопки перевода
-local ruB = Instance.new("TextButton", settingsC)
-ruB.Text="RU"
-ruB.Position=UDim2.new(0,5,0,93)
-ruB.Size=UDim2.new(0.5,-7,0,24)
-ruB.BackgroundColor3=Color3.fromRGB(60,60,60)
-ruB.TextColor3=Color3.new(1,1,1)
-Instance.new("UICorner", ruB).CornerRadius=UDim.new(0,6)
-
-local enB = Instance.new("TextButton", settingsC)
-enB.Text="EN"
-enB.Position=UDim2.new(0.5+0.015,0,0,93)
-enB.Size=UDim2.new(0.5,-7,0,24)
-enB.BackgroundColor3=Color3.fromRGB(60,60,60)
-enB.TextColor3=Color3.new(1,1,1)
-Instance.new("UICorner", enB).CornerRadius=UDim.new(0,6)
-
-ruB.MouseButton1Click:Connect(function() setLanguage("ru") end)
-enB.MouseButton1Click:Connect(function() setLanguage("en") end)
-
--- Всё готово!
