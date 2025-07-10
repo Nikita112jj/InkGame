@@ -157,7 +157,7 @@ copyB.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", copyB).CornerRadius = UDim.new(0,6)
 
 local toraB = Instance.new("TextButton", settingsC)
-toraB.Text = "Tora Script"
+toraB.Text = "Sifi Script"
 toraB.Position = UDim2.new(0,5,0,63)
 toraB.Size = UDim2.new(1,-10,0,24)
 toraB.BackgroundColor3 = Color3.fromRGB(60,60,60)
@@ -367,7 +367,7 @@ passB.MouseButton1Click:Connect(function()
     if hrp then hrp.CFrame=CFrame.new(-49,1024,84) end
 end)
 
--- Tora Script exec
+-- Sifi Script exec
 toraB.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/InkGame"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NysaDanielle/games/refs/heads/main/inkgame.lua"))()
 end)
